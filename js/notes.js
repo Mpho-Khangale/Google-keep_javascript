@@ -53,6 +53,7 @@ function createNote() {
     saveNotes();
 
     renderNotes(searchInput.value);
+    showToast("Note created successfully!");
 
     noteTitle.value = "";
     noteText.value = "";
@@ -75,6 +76,7 @@ function archiveNote(id) {
     saveNotes();
 
     renderNotes(searchInput.value);
+    showToast("Note archived successfully!");
 
 }
 
@@ -93,6 +95,7 @@ function restoreNote(id) {
     saveNotes();
 
     renderNotes(searchInput.value);
+    showToast("Note restored successfully!");
 
 }
 
@@ -109,6 +112,7 @@ function deleteNote() {
     saveNotes();
 
     renderNotes(searchInput.value);
+    showToast("Note deleted successfully!");
 
     closeDeleteModal();
 
