@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Keep Clone</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- CSS -->
+</head>
+<body>
+
+    <header>
+
+        <div class="logo">
+            <i class="fa-solid fa-lightbulb"></i>
+            <h2>Keep</h2>
+        </div>
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search notes..."
+            >
+
+        </div>
+
+        <button id="darkModeBtn" title="Toggle Dark Mode">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+    </header>
+
+    <main>
+
+        <!-- Create Note -->
+
+        <section class="create-note">
+
+            <input
+                type="text"
+                id="noteTitle"
+                placeholder="Title"
+            >
+
+            <textarea
+                id="noteText"
+                rows="5"
+                placeholder="Take a note..."
+            ></textarea>
+
+            <div class="bottom-row">
+
+                <select id="noteColor">
+
+                    <option value="#ffffff">White</option>
+                    <option value="#FFF8B8">Yellow</option>
+                    <option value="#CCFF90">Green</option>
+                    <option value="#AECBFA">Blue</option>
+                    <option value="#F28B82">Pink</option>
+                    <option value="#D7AEFB">Purple</option>
+
+                </select>
+
+                <button id="addNoteBtn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Note
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Active Notes -->
+
+        <section>
+
+            <h2 class="section-title">
+                Notes
+            </h2>
+
+            <div
+                id="notesContainer"
+                class="notes-grid"
+            >
+
+            </div>
+
+        </section>
+
+        <!-- Archived Notes -->
+
+        <section>
+
+            <h2 class="section-title">
+                Archived Notes
+            </h2>
+
+            <div
+                id="archiveContainer"
+                class="notes-grid"
+            >
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= DELETE MODAL ================= -->
+
+    <div id="deleteModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <h3>Delete Note?</h3>
+
+            <p>
+                This action cannot be undone.
+            </p>
+
+            <div class="modal-buttons">
+
+                <button id="cancelDelete">
+                    Cancel
+                </button>
+
+                <button id="confirmDelete">
+                    Delete
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= TEMPLATE ================= -->
+
+    <template id="noteTemplate">
+
+        <div class="note-card">
+
+            <h3 class="note-title"></h3>
+
+            <p class="note-body"></p>
+
+            <small class="note-date"></small>
+
+            <div class="note-actions">
+
+                <button
+                    class="archive-btn"
+                    title="Archive"
+                >
+                    <i class="fa-solid fa-box-archive"></i>
+                </button>
+
+                <button
+                    class="restore-btn"
+                    title="Restore"
+                >
+                    <i class="fa-solid fa-rotate-left"></i>
+                </button>
+
+                <button
+                    class="delete-btn"
+                    title="Delete"
+                >
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </template>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            Google Keep Clone &copy; 2026
+
+        </p>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+
+</body>
+</html>
