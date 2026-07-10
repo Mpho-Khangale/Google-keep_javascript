@@ -12,9 +12,9 @@ function renderNotes(searchTerm = "") {
     notesContainer.innerHTML = "";
     archiveContainer.innerHTML = "";
 
-    const filteredNotes = notes.filter(note => {
+    const search = searchTerm.toLowerCase();
 
-        const search = searchTerm.toLowerCase();
+    const filteredNotes = notes.filter(note => {
 
         return (
             note.title.toLowerCase().includes(search) ||
@@ -81,6 +81,22 @@ function renderNotes(searchTerm = "") {
 
     });
 
+    // Empty state
+
+    if (filteredNotes.length === 0) {
+
+        if (searchTerm.trim() === "") {
+
+            showEmptyState("Create your first note above.");
+
+        } else {
+
+            showEmptyState("No notes match your search.");
+
+        }
+
+    }
+
 }
 
 // ================================
@@ -143,18 +159,14 @@ function toggleDarkMode() {
 // Empty State
 // ================================
 
-function showEmptyState() {
+function showEmptyState(message = "Create your first note above.") {
 
-    if (notes.length === 0) {
-
-        notesContainer.innerHTML = `
-            <div class="empty-state">
-                <h2>No Notes Yet</h2>
-                <p>Create your first note above.</p>
-            </div>
-        `;
-
-    }
+    notesContainer.innerHTML = `
+        <div class="empty-state">
+            <h2>No Notes</h2>
+            <p>${message}</p>
+        </div>
+    `;
 
 }
 
